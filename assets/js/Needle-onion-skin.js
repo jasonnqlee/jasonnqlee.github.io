@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
             meta: "Material: <strong>0.05 cubic inches</strong>, Deflection: <strong>0.2073 inches</strong>",
 
             description:
-                '<li class="pro"> Baseline design from Insulet. Reliable and proven. Baseline for subsequent optimization.</li>'
+         <ul class="onion-list">
+                '<li class="pro"> Baseline design from Insulet. Reliable and proven. Baseline for subsequent optimization.</li></ul>'
         },
 
 
@@ -172,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
         detailTitle.textContent =
             iteration.title;
 
-        detailMeta.textContent =
+        detailMeta.innerHTML =
             iteration.meta;
 
         detailDesc.innerHTML =
