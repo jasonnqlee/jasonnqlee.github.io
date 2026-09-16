@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             description:
                 `
-        <ul>
+        <ul class="onion-list">
             <li class="pro"> W-shape design keeps central area wide, while outer prongs help support it during linear feeding</li>
             <li class="pro"> Avoids mold fill ability issues</li>
             <li class="pro"> Back area has some cuts as material cut there seems less impactful to overall stiffness (due to fixed points at stakes)</li>
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             description:
                 `
-        <ul>
+        <ul class="onion-list">
             <li class="pro"> Extended the side rails and deepened W-shape design while also thinning them out to save more material.</li>
             <li class="pro"> Kept the rail touching section flat like the baseline, while also helping with thickness along the length of the needle cap. This helps with tipping concerns during linear feeding raised with previous design.  
 </li>
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             description:
                 `
-        <ul>
+        <ul class="onion-list">
             <li class="pro"> Moved to 2-rib design to increase flat pickable area for top side vacuum pick system</li>
             <li class="pro"> Amended back cut-out to meet perimeter requirements and further optimized corners for loading</li>
             <li class="pro"> 2-prong design has a more efficient material to stiffness ratio.</li>
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             description:
                 `
-        <ul>
+        <ul class="onion-list">
             <li class="pro"> Added a chamfer outside to smoothen transitions. Between upper section and lower section (see photo below)</li>
             <li class="pro"> Hollowed out the front lip to offset material added back in</li>
             <li class="con"> It was not aesthetically pleasing</li>
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             description:
                 `
-        <ul>
+        <ul class="onion-list">
             <li class="pro"> Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied</li>
             <li class="pro"> Better integrated ribs to the tip</li>
             <li class="pro"> Further thinned out central vacuum picking surface to reduce material usage.</li>
