@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <li>+ Better integrated ribs to the tip</li>
             <li>+ Further thinned out central vacuum picking surface to reduce material usage.</li>
             <li>+ Expected to reduce mold fill issues at front lip</li>
-        </ul>         }
+        </ul>    '     }
     ];
 
 
