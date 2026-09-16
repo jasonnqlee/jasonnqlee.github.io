@@ -89,3 +89,30 @@
     }
 
 }
+
+.onion-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.onion-list li {
+    position: relative;
+    padding-left: 1.4em;
+    margin-bottom: 0.4em;
+}
+
+.onion-list li.pro::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: #2e7d32; /* green */
+    font-weight: bold;
+}
+
+.onion-list li.con::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: #c0392b; /* red */
+    font-weight: bold;
+}
