@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
             meta: "Material: 0.05 cubic inches, Deflection: 0.2073 inches",
 
             description:
-                "<p>+ Baseline design from Insulet. Reliable and proven. Baseline for subsequent optimization.</p>"
+                '<li class="pro"> Baseline design from Insulet. Reliable and proven. Baseline for subsequent optimization.</li>'
         },
 
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <li class="pro"> W-shape design keeps central area wide, while outer prongs help support it during linear feeding</li>
             <li class="pro"> Avoids mold fill ability issues</li>
             <li class="pro"> Back area has some cuts as material cut there seems less impactful to overall stiffness (due to fixed points at stakes)</li>
-            <li>– Concerned that it could tip over in the linear rail, which could lead to jams.</li>
+            <li class="con"> Concerned that it could tip over in the linear rail, which could lead to jams.</li>
         </ul>
     `
         },
