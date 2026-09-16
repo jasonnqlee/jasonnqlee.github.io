@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul>
-            <li>+ W-shape design keeps central area wide, while outer prongs help support it during linear feeding</li>
-            <li>+ Avoids mold fill ability issues</li>
-            <li>+ Back area has some cuts as material cut there seems less impactful to overall stiffness (due to fixed points at stakes)</li>
+            <li class="pro"> W-shape design keeps central area wide, while outer prongs help support it during linear feeding</li>
+            <li class="pro"> Avoids mold fill ability issues</li>
+            <li class="pro"> Back area has some cuts as material cut there seems less impactful to overall stiffness (due to fixed points at stakes)</li>
             <li>– Concerned that it could tip over in the linear rail, which could lead to jams.</li>
         </ul>
     `
@@ -70,11 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul>
-            <li>+ Extended the side rails and deepened W-shape design while also thinning them out to save more material.</li>
-            <li>+ Kept the rail touching section flat like the baseline, while also helping with thickness along the length of the needle cap. This helps with tipping concerns during linear feeding raised with previous design.  
+            <li class="pro"> Extended the side rails and deepened W-shape design while also thinning them out to save more material.</li>
+            <li class="pro"> Kept the rail touching section flat like the baseline, while also helping with thickness along the length of the needle cap. This helps with tipping concerns during linear feeding raised with previous design.  
 </li>
-            <li>- Didn’t leave enough top side surface area for upcoming factory with vacuum pick system</li>
-            <li>- Did not leave a perimeter around reservoir for the "second shot" injection to ensure consistent manufacture</li>
+            <li class="con"> Didn’t leave enough top side surface area for upcoming factory with vacuum pick system</li>
+            <li class="con"> Did not leave a perimeter around reservoir for the "second shot" injection to ensure consistent manufacture</li>
         </ul>
     `        },
 
@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul>
-            <li>+ Moved to 2-rib design to increase flat pickable area for top side vacuum pick system</li>
-            <li>+ Amended back cut-out to meet perimeter requirements and further optimized corners for loading</li>
-            <li>+ 2-prong design has a more efficient material to stiffness ratio.</li>
-            <li>- There were concerns the cap would get jammed in bowl feeders and linear rails</li>
+            <li class="pro"> Moved to 2-rib design to increase flat pickable area for top side vacuum pick system</li>
+            <li class="pro"> Amended back cut-out to meet perimeter requirements and further optimized corners for loading</li>
+            <li class="pro"> 2-prong design has a more efficient material to stiffness ratio.</li>
+            <li class="con"> There were concerns the cap would get jammed in bowl feeders and linear rails</li>
         </ul>
     `        },
 
@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul>
-            <li>+ Added a chamfer outside to smoothen transitions. Between upper section and lower section (see photo below)</li>
-            <li>+ Hollowed out the front lip to offset material added back in</li>
-            <li>- It was not aesthetically pleasing</li>
-            <li>- Pressing surface was not smooth enough</li>
-            <li>- Tip deflection was high when testing by hand</li>
+            <li class="pro"> Added a chamfer outside to smoothen transitions. Between upper section and lower section (see photo below)</li>
+            <li class="pro"> Hollowed out the front lip to offset material added back in</li>
+            <li class="con"> It was not aesthetically pleasing</li>
+            <li class="con"> Pressing surface was not smooth enough</li>
+            <li class="con"> Tip deflection was high when testing by hand</li>
         </ul>
     `        },
 
@@ -124,10 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul>
-            <li>+ Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied</li>
-            <li>+ Better integrated ribs to the tip</li>
-            <li>+ Further thinned out central vacuum picking surface to reduce material usage.</li>
-            <li>+ Expected to reduce mold fill issues at front lip</li>
+            <li class="pro"> Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied</li>
+            <li class="pro"> Better integrated ribs to the tip</li>
+            <li class="pro"> Further thinned out central vacuum picking surface to reduce material usage.</li>
+            <li class="pro"> Expected to reduce mold fill issues at front lip</li>
         </ul>
     `
         }
