@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "Existing Baseline Design",
 
-            meta: "Material: 0.05 cubic inches, Deflection: 0.2073 inches",
+            meta: "Material: <strong>0.05 cubic inches</strong>, Deflection: <strong>0.2073 inches</strong>",
 
             description:
                 '<li class="pro"> Baseline design from Insulet. Reliable and proven. Baseline for subsequent optimization.</li>'
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "W design V1",
 
-            meta: "Material Savings: 18.02%, Stiffness Loss: 21.71%",
+            meta: "Material Savings: <strong>18.02%</strong>, Stiffness Loss: <strong>21.71%</strong>",
 
             description:
                 `
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "W design V2",
 
-            meta: "Material Savings: 20.24%, Stiffness Loss: 22.86%",
+            meta: "Material Savings: <strong>20.24%</strong>, Stiffness Loss: <strong>22.86%</strong>",
 
             description:
                 `
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "2-Rib V1",
 
-            meta: "Material Savings: 23.10%, Stiffness Loss: 25.04%",
+            meta: "Material Savings: <strong>23.10%</strong>, Stiffness Loss: <strong>25.04%</strong>",
 
             description:
                 `
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "2-Rib V2",
 
-            meta: "Material Savings: 23.04%, Stiffness Loss: 24.50%",
+            meta: "Material Savings: <strong>23.04%</strong>, Stiffness Loss: <strong>24.50%</strong>",
 
             description:
                 `
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "Final Design",
 
-            meta: "Material Savings: 23.40%, Stiffness Loss: 23.40%",
+            meta: "Material Savings: <strong>23.40%</strong>, Stiffness Loss: <strong>23.40%</strong>",
 
             description:
                 `
