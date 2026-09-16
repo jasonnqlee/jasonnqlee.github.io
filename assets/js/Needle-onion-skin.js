@@ -124,11 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul>
-            <li>+Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied</li>
+            <li>+ Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied</li>
             <li>+ Better integrated ribs to the tip</li>
             <li>+ Further thinned out central vacuum picking surface to reduce material usage.</li>
             <li>+ Expected to reduce mold fill issues at front lip</li>
-        </ul>    '     }
+        </ul>
+    `
+        }
     ];
 
 
