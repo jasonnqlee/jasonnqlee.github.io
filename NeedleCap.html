@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/onion-skin.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -143,7 +144,7 @@
     </div>
 </section>
 
-						<!-- Two -->
+						<!-- Two (.GLB FILE) -->
 							<section id="two" class="spotlights">
 								<section>
 									<a href="generic.html" class="image">
@@ -194,6 +195,15 @@
 									</div>
 								</section>
 							</section>
+				<model-viewer
+    src="images/NeedleCap/final-design.glb"
+    alt="3D model of the final needle cap design"
+    camera-controls
+    auto-rotate
+    exposure="1"
+    shadow-intensity="1"
+    style="width: 100%; height: 500px; background: #f4f4f4;">
+</model-viewer>
 
 						<!-- Three -->
 							<section id="three">
