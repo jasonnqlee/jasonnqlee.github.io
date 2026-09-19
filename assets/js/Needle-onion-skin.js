@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 `
         <ul class="onion-list">
             <li class="pro"> Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied (See photo below)</li>
-            <li class="photo"> <img src="images/NeedleCap/TipTesting.jpg" alt="Broken Tips of all iterations" /> <span class="photo-caption">Overall view of tip breakage pattern</span> </li>
+            <li class="photo"> <img src="images/NeedleCap/TipTesting.jpg" alt="Broken Tips of all iterations" /> <span class="photo-caption">When pressing at the very tip, the final design distributes load better, breaking nearer to the base instead of prematurely</span> </li>
             <li class="pro"> Better integrated ribs to the tip</li>
             <li class="pro"> Further thinned out central vacuum picking surface to reduce material usage.</li>
             <li class="pro"> Expected to reduce mold fill issues at front lip</li>
