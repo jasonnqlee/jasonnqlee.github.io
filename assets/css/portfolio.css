@@ -123,14 +123,14 @@
     margin: 2em 0;
 }
 .material-chart img {
-    width: 100%;
+    width: 80%;
     height: auto;
     display: block;
 }
 
 .tech-image-row {
-    max-width: 100%;
-    margin: 2em 0;
+    max-width: 80%;
+    margin: 2em auto;
 }
 .tech-image-row img {
     width: 100%;
