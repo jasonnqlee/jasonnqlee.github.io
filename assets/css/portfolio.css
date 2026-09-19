@@ -17,16 +17,11 @@
 }
 
 .image-label {
-    display: block;
-    font-size: 0.85em;
-    color: #666;
-    margin-top: 0.5em;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .image-arrow {
-    font-size: 1.5em;
-    color: #666;
-    flex: 0 0 auto;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Smaller screens */
@@ -39,8 +34,45 @@
     }
 }
 
-<div class="outcome-layout">
 .outcome-image {
     margin-bottom: 2.5em; /* space between image pair and the paragraph text below */
 }
-    <div class="outcome-image">
+
+.anatomy-layout {
+    display: flex;
+    gap: 3em;
+    align-items: center;
+}
+
+.anatomy-image {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.anatomy-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.anatomy-list {
+    flex: 0 0 calc(40% - 1.5em);
+    min-width: 0;
+    list-style: decimal;
+    padding-left: 1.25em;
+}
+
+.anatomy-list li {
+    margin-bottom: 0.8em;
+}
+
+@media screen and (max-width: 980px) {
+    .anatomy-layout {
+        flex-direction: column;
+    }
+    .anatomy-image,
+    .anatomy-list {
+        width: 100%;
+        flex: none;
+    }
+}
