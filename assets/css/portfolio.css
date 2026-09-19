@@ -151,3 +151,11 @@
     color: rgba(255, 255, 255, 0.75);
     margin-top: 0.5em;
 }
+
+
+.outcome-summary {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5em;
+}
