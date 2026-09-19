@@ -38,3 +38,9 @@
         transform: rotate(90deg);
     }
 }
+
+<div class="outcome-layout">
+.outcome-image {
+    margin-bottom: 2.5em; /* space between image pair and the paragraph text below */
+}
+    <div class="outcome-image">
