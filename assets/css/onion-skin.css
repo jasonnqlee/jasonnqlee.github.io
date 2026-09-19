@@ -116,3 +116,27 @@
     color: #c0392b; /* red */
     font-weight: bold;
 }
+.onion-list li.photo {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.8em 0;
+}
+
+.onion-list li.photo::before {
+    content: none;
+}
+
+.onion-list li.photo img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.photo-caption {
+    display: block;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 0.3em;
+}
