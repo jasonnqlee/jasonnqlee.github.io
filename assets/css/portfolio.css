@@ -76,3 +76,51 @@
         flex: none;
     }
 }
+
+.callout-layout {
+    display: flex;
+    gap: 3em;
+    align-items: flex-start;
+}
+
+.callout-image {
+    flex: 0 0 calc(35% - 1.5em);
+    min-width: 0;
+    text-align: center;
+}
+
+.callout-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.callout-text {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.callout-note {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 980px) {
+    .callout-layout {
+        flex-direction: column;
+    }
+    .callout-image,
+    .callout-text {
+        width: 100%;
+        flex: none;
+    }
+}
+
+.material-chart {
+    margin: 2em 0;
+}
+.material-chart img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
