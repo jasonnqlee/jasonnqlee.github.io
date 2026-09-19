@@ -41,12 +41,15 @@
 .anatomy-layout {
     display: flex;
     gap: 3em;
-    align-items: center;
+    align-items: flex-start;
 }
 
-.anatomy-image {
+.anatomy-images {
     flex: 1 1 0;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
 }
 
 .anatomy-image img {
@@ -70,7 +73,7 @@
     .anatomy-layout {
         flex-direction: column;
     }
-    .anatomy-image,
+    .anatomy-images,
     .anatomy-list {
         width: 100%;
         flex: none;
