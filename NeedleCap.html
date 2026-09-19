@@ -354,12 +354,16 @@
 
         <p>To validate designs against this, I mirrored Insulet's physical break-force test in FEA — same fixture points, same load location and direction — so I could check each iteration against the same pass/fail bar the physical part would eventually face, before printing anything.</p>
 
-        <p>As seen in the diagrams below, the left is the physical test jig, with the heat stake pins embedded. When simplified and broken down, it translated to a cantilever beam with a load near the end. When simulating, however, I matched the boundary criteria more closely, with the heat stake pins set as fixed boundaries, and the rear face as a pin.</p>
+        <p>As seen in the diagrams below, the left is the physical situation, with the heat stake pins embedded. When simplified and broken down, it closely resembles a cantilever beam with a load near the end. When simulating, however, I matched the boundary criteria more closely, with the heat stake pins set as fixed boundaries, and the rear face as a pin.</p>
 
         <div class="tech-image-row">
             <img src="images/NeedleCap/HandCalculation.png" alt="Physical test jig and simplified beam diagram" />
         </div>
 
+<div class="tech-image-row">
+    <img src="images/NeedleCap/Stress_diagram.png" alt="FEA stress plot of final design under simulated break-force load" />
+    <p class="strip-caption">Stress distribution on the final design under the simulated break-force test — highest stress (red) concentrates near the heat stake pins and outer edges, consistent with the intended break point.</p>
+</div>
         <p>When looking at optimizing (what is essentially) a cantilever beam design and getting the most efficient design in terms of minimizing deflection for a given force, there are a few answers according to the beam bending equation in order of effectiveness:</p>
 
         <ol>
