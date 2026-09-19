@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 `
         <ul class="onion-list">
             <li class="pro"> Added a chamfer outside to smoothen transitions between outer upper and lower section (see photo below)</li>
-            <li class="photo"> <img src="images/NeedleCap/ChamferFix.png" alt="Chamfer detail on 2-Rib V2" /> <span class="photo-caption">Chamfer close-up</span> </li>
+            <li class="photo"> <img src="images/NeedleCap/ChamferFix.png" alt="Chamfer detail on 2-Rib V2" /> <span class="photo-caption">Chamfer as seen in red circle, bridges lower and upper sections</span> </li>
             <li class="pro"> Hollowed out the front lip to offset material added back in</li>
             <li class="con"> It was not aesthetically pleasing</li>
             <li class="con"> Pressing surface was not smooth enough</li>
