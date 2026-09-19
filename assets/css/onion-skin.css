@@ -6,7 +6,7 @@
 
 /* Image side */
 .onion-viewer {
-    flex: 0 0 calc(40% - 1.5em);
+    flex: 0 0 calc(45% - 1.5em);
     min-width: 0;
 }
 
