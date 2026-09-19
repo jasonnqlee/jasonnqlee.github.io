@@ -129,6 +129,7 @@
 }
 
 .tech-image-row {
+    max-width: 80%;
     margin: 2em 0;
 }
 .tech-image-row img {
