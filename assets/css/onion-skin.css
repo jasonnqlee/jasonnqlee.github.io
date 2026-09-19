@@ -128,7 +128,6 @@
 
 .onion-list li.photo img {
     width: 100%;
-    max-width: 280px;
     height: auto;
     border-radius: 4px;
     display: block;
