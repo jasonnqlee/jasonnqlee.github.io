@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "Final Design",
 
-            meta: "Material Savings: <strong>23.40%</strong>, Stiffness Loss: <strong>23.40%</strong>",
+            meta: "Material Savings: <strong>23.40%</strong>, Stiffness Loss: <strong>22.50%</strong>",
 
             description:
                 `
