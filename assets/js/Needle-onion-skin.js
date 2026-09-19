@@ -106,7 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul class="onion-list">
-            <li class="pro"> Added a chamfer outside to smoothen transitions. Between upper section and lower section (see photo below)</li>
+            <li class="pro"> Added a chamfer outside to smoothen transitions between outer upper and lower section (see photo below)</li>
+            <li class="photo"> <img src="images/NeedleCap/ChamferFix.png" alt="Chamfer detail on 2-Rib V2" /> <span class="photo-caption">Chamfer close-up</span> </li>
             <li class="pro"> Hollowed out the front lip to offset material added back in</li>
             <li class="con"> It was not aesthetically pleasing</li>
             <li class="con"> Pressing surface was not smooth enough</li>
@@ -124,7 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
             description:
                 `
         <ul class="onion-list">
-            <li class="pro"> Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied</li>
+            <li class="pro"> Reworked the tip and kept a thicker outer ring maintaining strength better at the tip, and in a wider range of forces being applied (See photo below)</li>
+            <li class="photo"> <img src="images/NeedleCap/TipTesting.jpg" alt="Broken Tips of all iterations" /> <span class="photo-caption">Overall view of tip breakage pattern</span> </li>
             <li class="pro"> Better integrated ribs to the tip</li>
             <li class="pro"> Further thinned out central vacuum picking surface to reduce material usage.</li>
             <li class="pro"> Expected to reduce mold fill issues at front lip</li>
