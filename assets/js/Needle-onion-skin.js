@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             title: "Existing Baseline Design",
 
-            meta: "Material: <strong>0.05 cubic inches</strong>, Deflection: <strong>0.2073 inches</strong>",
+            meta: "Material: <strong>0.05 in³</strong>, Deflection: <strong>0.2073 inches</strong>",
 
             description:
          '<ul class="onion-list"><li class="pro"> Baseline design from Insulet. Reliable and proven. Baseline for subsequent optimization.</li></ul>'
