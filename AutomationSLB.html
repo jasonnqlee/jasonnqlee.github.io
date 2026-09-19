@@ -67,7 +67,7 @@
         <p class="outcome-summary">~10x faster per asset &middot; 40+ hours saved per 500-pipe job &middot; 204,000+ assets supported &middot; built for the wider East Asia Group</p>
 
         <div class="tech-image-row">
-            <img src="images/SLB/system-diagram.png" alt="System suite diagram: pipe status search, routing logic, and asset tools" />
+            <img src="images/PipeAutomationSLB/ProgramArchitecture.png" alt="System suite diagram: pipe status search, routing logic, and asset tools" />
         </div>
 
         <p>At SLB, I was a Reservoir Performance Testing intern responsible for equipment traceability — tracking hundreds of unique parts across every job, for every client, in our department's TestTrack database. Over half of any job's parts were pipework, tracked the same way every time, but TestTrack only let you search and update pipes one at a time.</p>
@@ -75,6 +75,10 @@
         <p>With one upcoming job involving over 500 pipes, doing this by hand wasn't just slow — it was the largest single time cost in my role. I built a suite of Python tools that read directly from Excel, drive TestTrack through the browser, and manage pipes in batches instead of one by one.</p>
 
         <p>Manually, searching and checking 540 pipes took roughly 22.5 hours. The automated version does the same work in about 1.3 hours — and that's before counting the downstream steps (asset creation, editing, UT upload) it also automates.</p>
+		<div class="tech-image-row">
+            <img src="images/PipeAutomationSLB/ProgramImpact.png" alt="Estimated Time saving from programs( pipe status search, routing logic, and asset tools)" />
+			
+        </div>
     </div>
 </section>
 
@@ -131,7 +135,7 @@
         <p>If an asset isn't found under the default accounting unit, the tool doesn't just report a failure — it checks whether the asset is decommissioned first, then retries the search across all accounting units before giving up. That ordering matters: a decommissioned asset and a missing one need different follow-up, and getting them confused would send someone chasing the wrong problem.</p>
 
         <div class="tech-image-row">
-            <img src="images/SLB/manual-vs-auto-table.png" alt="Table comparing manual vs automated time per module" />
+            <img src="images/PipeAutomationSLB/ProgramImpact.png" alt="Table comparing manual vs automated time per module" />
         </div>
 
         <p>Manual retrieval of SL3 certificates averaged about 2 minutes per asset, measured by timing a new intern doing it by hand. The automated version runs at roughly 10–15 seconds per asset, depending on network conditions — about a 10x speedup, and around 15 hours saved on a 500-asset job alone.</p>
