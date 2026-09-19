@@ -327,7 +327,94 @@
     </div>
 </section>
 
-					
+
+<!-- Technical Details -->
+<section id="technical-details">
+    <div class="inner">
+        <header class="major">
+            <h2>Technical Details</h2>
+        </header>
+
+        <p>The needle cap is a class 3 lever, designed to snap off at its heat stake pins when the patient primes the pod. The physical test validates that the cap reliably breaks at the stakes at a predictable force, rather than deforming or fracturing elsewhere. My senior didn't specify a stiffness floor for the cap itself, but reasoning through the lever mechanics, I realized a cap that's too compliant risks absorbing force as bending instead of transmitting it cleanly to the stakes, which could shift where and how reliably the part breaks.</p>
+
+        <p>I also believed that a cap that felt flimsy in hand would undermine user confidence in the device, even if it technically passed every test. Between the functional risk and that judgment call, I treated stiffness retention as a self-imposed constraint from the outset, rather than optimizing purely for material reduction.</p>
+
+        <p>To validate designs against this, I mirrored Insulet's physical break-force test in FEA — same fixture points, same load location and direction — so I could check each iteration against the same pass/fail bar the physical part would eventually face, before printing anything.</p>
+
+        <p>As seen in the diagrams below, the left is the physical test jig, with the heat stake pins embedded. When simplified and broken down, it translated to a cantilever beam with a load near the end. When simulating, however, I matched the boundary criteria more closely, with the heat stake pins set as fixed boundaries, and the rear face as a pin.</p>
+
+        <div class="tech-image-row">
+            <img src="images/NeedleCap/test-setup-diagram.png" alt="Physical test jig and simplified beam diagram" />
+        </div>
+
+        <p>When looking at optimizing (what is essentially) a cantilever beam design and getting the most efficient design in terms of minimizing deflection for a given force, there are a few answers according to the beam bending equation in order of effectiveness:</p>
+
+        <ol>
+            <li>Change the cross-sectional geometry to increase the second area moment of inertia — for a rectangular cross section, increase the height, and make it more like an I-beam.</li>
+            <li>Reduce the lever length</li>
+            <li>Increase the strength of the material</li>
+            <li>Reduce the force</li>
+        </ol>
+
+        <div class="tech-image-row">
+            <img src="images/NeedleCap/beam-equation-diagram.png" alt="Beam bending equation diagram" />
+        </div>
+
+        <p>There are some subtleties, but generally, as can be seen by the beam bending equation, the most effective change would be increasing the height of the beam or shortening the length. The illustration also shows how it relates to the needle cap. The differences between the top and the bottom are relatively minor, with the top hand calculation case being a worse case.</p>
+
+        <p>My first design, based on hand calculations and beam bending theory, used two long rectangular ribs, a flattened the top side, with a dimple as a cue for where users could push down.</p>
+
+        <div class="tech-image-row">
+            <img src="images/NeedleCap/v0-design.png" alt="First hand-calculated design, v0" />
+        </div>
+
+        <p>This design was essentially the most effective design from purely the displacement and material savings standpoint, increasing deformation by only 16.5%, while saving 40% of the material when tested as prescribed.</p>
+
+        <p>However there were still multiple problematic criticisms for manufacture, assembly, and user experience.</p>
+
+        <ul>
+            <li>Difficult to manufacture, very thin geometries make parts very likely to fail. A completely new mold would also be required.</li>
+            <li>Assembly line set up, would require redesign of feeding system and reworking of vacuum pickups within cells.</li>
+            <li>Other features like vents and heat stakes would also require relevant redesigns</li>
+            <li>Increased height and sharp ribs would require change in packaging, as well as risk puncturing seal during transportation.</li>
+        </ul>
+
+        <h3>User Experience</h3>
+        <p>Intended breaking direction may not be as clear. May not be as comfortable to use due to the ribs, even with clearance cut. Less robust when pushed in other "incorrect" directions like twisting or pulling up. Was especially weak when pushed from the very nose, instead of the designed point.</p>
+        <p>Feeling of more give may inadvertently make the force required to break the heat stakes harder than expected or increase the perception of the force required.</p>
+
+        <p>There were many different optimizations made, but the biggest lever was the implementation of the prongs and figuring out what was the most efficient configuration.</p>
+
+        <p>I thinned out ribs from the center to outside, and then vice versa to try to find the optimal thickness of the ribs (as can be seen in the first two iterations). Instead, I found out that keeping just the ribs directly infront/inline with the heat stakes pins was most efficient.</p>
+
+        <p>When printing each iteration out and testing by hand, I noticed that all the needle caps were snapping in the same place. It was partly due to the printing orientation but also due to the design.</p>
+
+        <p>Looking at the tip thickness, it was simply too thin, and not well integrated enough with the ribs, meaning the loading path was not as optimized as it could be. It may have been a stress concentration.</p>
+
+        <div class="prototype-strip">
+            <img src="images/NeedleCap/prototype-breaks.jpg" alt="Physical prototypes showing break location across iterations" />
+            <p class="strip-caption">As seen above, in the final iteration the break was further back, nearer to the base of the rib as opposed to the junction between the tip and the rib. It was much harder to break in general and was qualitatively more robust in twisting as well.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Improvements -->
+<section id="improvements">
+    <div class="inner">
+        <header class="major">
+            <h2>Improvements</h2>
+        </header>
+        <p>Given the limited time in which I had with this project, I would have liked to work on:</p>
+        <ul>
+            <li>Investigating injection gating location and mold fillability simulations</li>
+            <li>Ordering injection molded prototyping with Xometry</li>
+            <li>Comparing my design with computer generated Topology Optimisation</li>
+            <li>Conducting formalised testing of physical prototypes, with validation of simulation accuracy using existing design and quantifying error</li>
+            <li>Simulation with alternative opening methods like twisting (my personal preference)</li>
+            <li>A user feedback study of how it feels to use when installed on an actual pod.</li>
+        </ul>
+    </div>
+</section>
 					
 					
 						<!-- Two (.GLB FILE) -->
