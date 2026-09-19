@@ -347,8 +347,18 @@
         <header class="major">
             <h2>Technical Details</h2>
         </header>
+<section id="technical-details">
+    <div class="inner">
+        <header class="major">
+            <h2>Technical Details</h2>
+        </header>
 
-        <p>The needle cap is a class 3 lever, designed to snap off at its heat stake pins when the patient primes the pod. The physical test validates that the cap reliably breaks at the stakes at a predictable force, rather than deforming or fracturing elsewhere. My senior didn't specify a stiffness floor for the cap itself, but reasoning through the lever mechanics, I realized a cap that's too compliant risks absorbing force as bending instead of transmitting it cleanly to the stakes, which could shift where and how reliably the part breaks.</p>
+        <div class="tech-image-row">
+            <img src="images/NeedleCap/Stress diagram.png" alt="FEA stress plot of final design under simulated break-force load" />
+            <p class="strip-caption">FEA stress distribution for final design under simulated break-force load, red is higher stress. highest stress concentrates at the heat stake pins, consistent with the intended break point. Heavy loading through ribs.</p>
+        </div>
+   
+		<p>The needle cap is a class 3 lever, designed to snap off at its heat stake pins when the patient primes the pod. The physical test validates that the cap reliably breaks at the stakes at a predictable force, rather than deforming or fracturing elsewhere. My senior didn't specify a stiffness floor for the cap itself, but reasoning through the lever mechanics, I realized a cap that's too compliant risks absorbing force as bending instead of transmitting it cleanly to the stakes, which could shift where and how reliably the part breaks.</p>
 
         <p>I also believed that a cap that felt flimsy in hand would undermine user confidence in the device, even if it technically passed every test. Between the functional risk and that judgment call, I treated stiffness retention as a self-imposed constraint from the outset, rather than optimizing purely for material reduction.</p>
 
@@ -360,10 +370,6 @@
             <img src="images/NeedleCap/HandCalculation.png" alt="Physical test jig and simplified beam diagram" />
         </div>
 
-<div class="tech-image-row">
-    <img src="images/NeedleCap/Stress diagram.png" alt="FEA stress plot of final design under simulated break-force load" />
-    <p class="strip-caption">Stress distribution on the final design under the simulated break-force test — highest stress (red) concentrates near the heat stake pins and outer edges, consistent with the intended break point.</p>
-</div>
         <p>When looking at optimizing (what is essentially) a cantilever beam design and getting the most efficient design in terms of minimizing deflection for a given force, there are a few answers according to the beam bending equation in order of effectiveness:</p>
 
         <ol>
