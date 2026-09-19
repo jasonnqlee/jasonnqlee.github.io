@@ -1,0 +1,40 @@
+.image-pair {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.image-item {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-label {
+    display: block;
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 0.5em;
+}
+
+.image-arrow {
+    font-size: 1.5em;
+    color: #666;
+    flex: 0 0 auto;
+}
+
+/* Smaller screens */
+@media screen and (max-width: 980px) {
+    .image-pair {
+        flex-direction: column;
+    }
+    .image-arrow {
+        transform: rotate(90deg);
+    }
+}
