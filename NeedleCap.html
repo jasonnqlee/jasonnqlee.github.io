@@ -233,6 +233,86 @@
         </model-viewer>
     </div>
 </section>
+
+
+<!-- Hand-Calc Callout -->
+<section id="hand-calc-callout">
+    <div class="inner">
+        <header class="major">
+            <h2>"Mathematically/Theoretically Optimal" — Why Not?</h2>
+        </header>
+
+        <div class="callout-layout">
+            <div class="callout-image">
+                <img src="images/NeedleCap/HandCalcDesign.png" alt="Hand-calculated theoretical optimum design" />
+                <span class="image-label">0.0294 in³ — -41.2%</span>
+            </div>
+
+            <div class="callout-text">
+                <ul class="onion-list">
+                    <li class="pro">Purely by the numbers: lowest deflection, most material saved (0.0294 in³, 16.5% more deflection at much lower mass) — the mathematically optimal answer.</li>
+                    <li class="con">Required an entirely new mold, thin ribs risked failure in manufacturing, feed-system redesign needed, and it felt fragile/less robust when tested by hand.</li>
+                </ul>
+                <p class="callout-note">This ruled it out early, before the CAD-based iterations — which is why they started from the existing mold's baseline instead of the theoretical optimum.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Experience, Learnings & Skills -->
+<section id="experience">
+    <div class="inner">
+        <header class="major">
+            <h2>Experience, Learnings, and Skills</h2>
+        </header>
+
+        <p>Sometimes constraints lead to even more efficient results, as seen by the move from the W shape concept to the two-prong design due to the topside vacuum pick constraint.</p>
+
+        <p>The best engineering decision sometimes is not the best overall decision in the context of the product due to the tradeoffs dictated by circumstance.</p>
+
+        <p>The tradeoffs came from three different stages of the product's life,<br />
+        upstream, when the needle cap is being manufactured;<br />
+        midstream, when the needle cap is being assembled into the product;<br />
+        downstream, when the Omnipod is being transported and the needle cap is broken off it;</p>
+
+        <h3>Upstream</h3>
+        <ul>
+            <li>The existing mold is two parts, top and bottom. To minimize the cost of mold changes, it's best to only change the top part given the bottom part both faces the package seal, as well as being a vacuum pick surface.</li>
+            <li>Each rib, and feature of the injection molded part require specific thicknesses and rules to facilitate even hardening</li>
+            <li>The well area for the second injection molded part required a perimeter wall of a specific thickness to ensure consistent injection molding of the second shot.</li>
+        </ul>
+
+        <h3>Midstream</h3>
+        <ul>
+            <li>The overall height and dimensions are also constrained by the existing feed systems</li>
+            <li>For certain designs, the linear feeders have an increased risk of jamming. As such transitions between the top part and lower parts have a chamfer to reduce that risk</li>
+            <li>The vacuum pick surface is not only on the bottom, but also the top in an upcoming Chinese plant, meaning enough surface area needs to be maintained to facilitate that</li>
+        </ul>
+
+        <h3>Downstream</h3>
+        <ul>
+            <li>Risks of packaging puncture from sharper surfaces during transportation</li>
+            <li>Psychological and subjective factors regarding aesthetics, intuitiveness, and feel</li>
+        </ul>
+
+        <p>While continuous conversations on the constraints helped crystalise the designs, further simulations and physical prototypes gave me insight into less obvious characteristics. It is vital to also conduct tests in person.</p>
+
+        <p>It is easier to gauge different aspects of the part quickly in a way uncaptured by test criteria. For example, pressing specifically at the tip, or twisting to open. Of course, it's important to know that SLA and injection molded parts have different characteristics when making a judgement on a part's strength based on how it's manufactured and what material is used. Discussion with technicians here is critical.</p>
+
+        <div class="material-chart">
+            <img src="images/NeedleCap/material-comparison-chart.png" alt="Flexural modulus comparison chart across materials" />
+        </div>
+
+        <p>For the materials used, there was a 2-18% difference in strength between the prototype and the production part.</p>
+
+        <p>Finally, while constraints can give rise to better designs, so can informal tests and interactions. Engineering can be both very structured, and very informal.</p>
+    </div>
+</section>
+
+
+					
 					
 					
 						<!-- Two (.GLB FILE) -->
