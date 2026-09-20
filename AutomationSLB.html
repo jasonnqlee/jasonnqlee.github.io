@@ -68,7 +68,7 @@
         <p class="outcome-summary">~46 hours saved per 540-pipe job &middot; 204,000+ assets supported &middot; built for the wider East Asia Group</p>
 
         <div class="tech-image-row">
-            <img src="images/SLB/manual-vs-auto-table.png" alt="Table comparing manual and automated processing time per tool, 540 pipes" />
+            <img src="images/SLB/ProgramImpact.png" alt="Table comparing manual and automated processing time per tool, 540 pipes" />
         </div>
 
         <p>At SLB, I was a Reservoir Performance Testing intern responsible for equipment traceability: tracking hundreds of unique parts across every job, for every client, in our department's TestTrack database. Over half of any job's parts were pipework, tracked the same way each time, but TestTrack only let you search and update pipes one at a time.</p>
@@ -87,7 +87,7 @@
         <p>The four tools aren't independent. The SL3 search tool is the entry point: it checks every pipe's status, then its result determines which of the other three tools is actually needed. A pipe with no COC or listed under "All Accounting Units" goes to the editing tool. A pipe TestTrack can't find at all goes to the creation tool. A pipe with an outdated SL3 or SL2 goes to the UT inspection update tool.</p>
 
         <div class="tech-image-row">
-            <img src="images/SLB/system-diagram.png" alt="Program architecture: SL3 search routes to editing, creation, or UT update tools based on result" />
+            <img src="images/SLB/ProgramArchitecture.png" alt="Program architecture: SL3 search routes to editing, creation, or UT update tools based on result" />
         </div>
 
         <p>This meant I only had to solve the login, search, and asset-matching logic once, then reuse it across all four scripts, rather than rebuilding it four times.</p>
