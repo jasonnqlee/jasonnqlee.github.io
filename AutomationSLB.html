@@ -65,21 +65,32 @@
             <h2>Outcome</h2>
         </header>
 
-        <p class="outcome-summary">~10x faster per asset &middot; 40+ hours saved per 500-pipe job &middot; 204,000+ assets supported &middot; built for the wider East Asia Group</p>
+        <p class="outcome-summary">~46 hours saved per 540-pipe job &middot; 204,000+ assets supported &middot; built for the wider East Asia Group</p>
 
         <div class="tech-image-row">
-            <img src="images/PipeAutomationSLB/ProgramArchitecture.png" alt="System suite diagram: pipe status search, routing logic, and asset tools" />
+            <img src="images/SLB/manual-vs-auto-table.png" alt="Table comparing manual and automated processing time per tool, 540 pipes" />
         </div>
 
-        <p>At SLB, I was a Reservoir Performance Testing intern responsible for equipment traceability — tracking hundreds of unique parts across every job, for every client, in our department's TestTrack database. Over half of any job's parts were pipework, tracked the same way every time, but TestTrack only let you search and update pipes one at a time.</p>
+        <p>At SLB, I was a Reservoir Performance Testing intern responsible for equipment traceability: tracking hundreds of unique parts across every job, for every client, in our department's TestTrack database. Over half of any job's parts were pipework, tracked the same way each time, but TestTrack only let you search and update pipes one at a time.</p>
 
-        <p>With one upcoming job involving over 500 pipes, doing this by hand wasn't just slow — it was the largest single time cost in my role. I built a suite of Python tools that read directly from Excel, drive TestTrack through the browser, and manage pipes in batches instead of one by one.</p>
+        <p>I built four Python tools that read from Excel, drive TestTrack through the browser, and process pipes in batches instead of one by one. On a 540-pipe job, they cut the combined manual time for search, editing, creation, and UT upload from about 52 hours to about 6, saving roughly 46 hours.</p>
+    </div>
+</section>
 
-        <p>Manually, searching and checking 540 pipes took roughly 22.5 hours. The automated version does the same work in about 1.3 hours — and that's before counting the downstream steps (asset creation, editing, UT upload) it also automates.</p>
-		<div class="tech-image-row">
-            <img src="images/PipeAutomationSLB/ProgramImpact.png" alt="Estimated Time saving from programs( pipe status search, routing logic, and asset tools)" />
-			
+<!-- Program Architecture -->
+<section id="architecture">
+    <div class="inner">
+        <header class="major">
+            <h2>Program Architecture</h2>
+        </header>
+
+        <p>The four tools aren't independent. The SL3 search tool is the entry point: it checks every pipe's status, then its result determines which of the other three tools is actually needed. A pipe with no COC or listed under "All Accounting Units" goes to the editing tool. A pipe TestTrack can't find at all goes to the creation tool. A pipe with an outdated SL3 or SL2 goes to the UT inspection update tool.</p>
+
+        <div class="tech-image-row">
+            <img src="images/SLB/system-diagram.png" alt="Program architecture: SL3 search routes to editing, creation, or UT update tools based on result" />
         </div>
+
+        <p>This meant I only had to solve the login, search, and asset-matching logic once, then reuse it across all four scripts, rather than rebuilding it four times.</p>
     </div>
 </section>
 
@@ -90,21 +101,17 @@
             <h2>Experience, Learnings, and Skills</h2>
         </header>
 
-        <p>Not every part of this toolkit was automated the same way — and deciding where to draw that line was one of the more important calls I made on this project.</p>
+        <p>Not every tool automates the same way. That distinction was one of the more important calls I made on this project.</p>
 
-        <p>Searching for a pipe, checking its inspection status, and downloading its report is low-risk: if something goes wrong, you just run it again. So the SL3 search and download tool runs fully unattended — log in once, then it works through hundreds of serial numbers without needing me to watch it.</p>
+        <p>Search, status checks, and downloading reports are low risk. If something goes wrong, I just run it again. So the SL3 search tool runs fully unattended once I log in.</p>
 
-        <p>Creating a new asset is a different kind of risk. Very few people at SLB have permission to delete a wrongly created pipe once it exists in TestTrack — a mistake there isn't just annoying, it's hard to undo. So that tool runs semi-automated: it pre-fills every field from the Excel sheet, including the asset code, the born-on/commissioned/in-service dates, and the matching COC file — then it waits, giving me an hour to actually check the fields before clicking submit myself. I only turned off that review step once I'd verified the asset-code logic was solid across enough real cases to trust it.</p>
+        <p>Creating a new asset is a different kind of risk. Very few people at SLB can delete a wrongly created pipe once it exists in TestTrack. So the creation tool pre-fills every field from Excel, including the asset code and the COC file, then pauses for up to an hour so I can check it before submitting. I only turned that review step off once I'd verified the asset-code logic held up across enough real cases to trust it unattended.</p>
 
-        <p>That's the pattern across all four tools: automate the repetitive, low-stakes parts completely; keep a human check exactly where a mistake would be expensive or irreversible.</p>
+        <p>The same principle runs through the other two tools. The editing tool updates existing records but still requires a matched asset before touching anything. The UT upload tool cross-checks the serial number inside each PDF against the serial number in Excel before using it. A PDF that doesn't match anything gets moved into a separate folder instead of being silently applied to the wrong asset.</p>
 
-        <p>I also built in recovery for the boring failure modes that inevitably show up over a multi-hour run — the workbook saves every 9 rows, so a crash or a lost connection partway through a 500-asset job doesn't mean starting over. Searches that don't find an asset immediately retry, then fall back to checking across all accounting units, then check whether the asset is simply decommissioned, before giving up and flagging it for manual review. Stale references in the browser (a common Selenium failure when a page updates mid-action) get caught and retried automatically rather than crashing the whole run.</p>
+        <p>Across all four, I built in recovery for the ordinary failures that come with a multi-hour run: the workbook saves every 9 rows, so a crash partway through doesn't mean starting over. A search that doesn't find an asset immediately retries, then checks whether it's decommissioned, then checks across all accounting units before flagging it for review. Stale references in the browser, a common Selenium failure when a page updates mid-action, get caught and retried instead of crashing the run.</p>
 
-        <p>The tools also don't blindly trust their inputs. The UT upload tool cross-checks the serial number embedded in each PDF against the serial number in Excel before using it — if a report doesn't match, or a PDF exists in the folder with no matching serial number at all, it gets moved into a separate "Non Relevant PDFs" folder rather than silently processed or ignored.</p>
-
-        <p>All four tools share the same underlying search-and-login logic, refactored so I wasn't rewriting the same TestTrack automation four times. What started as one script for one job became a small internal toolkit.</p>
-
-        <p>I also built the search-and-process step to run in parallel across multiple worker sessions — splitting the input workbook, running several TestTrack sessions at once, then merging the results back into one file. It currently runs in single-session mode; I got the architecture working but haven't yet had a large enough job, or enough confidence in TestTrack's tolerance for concurrent sessions, to rely on it in production. It's there for when the job size justifies it.</p>
+        <p>I also built a parallel-processing path that splits the input workbook across multiple TestTrack sessions and merges the results back into one file. It currently runs single-session. I built and tested the architecture but haven't had a job large enough, or enough confidence in how TestTrack handles concurrent logins, to rely on it in production.</p>
     </div>
 </section>
 
@@ -115,9 +122,9 @@
             <h2>Motivations</h2>
         </header>
 
-        <p>Reservoir performance testing wasn't the industry I expected to end up in, and my assigned role — equipment traceability — was mostly manual, repetitive record-keeping. It wasn't glamorous, but it was necessary, and I noticed early on that it was taking up a disproportionate share of my time relative to how complex the work actually was.</p>
+        <p>Reservoir performance testing wasn't the industry I expected to end up in, and my assigned role, equipment traceability, was mostly manual record-keeping. It wasn't glamorous, but it was necessary, and I noticed it was taking up more of my time than its actual complexity justified.</p>
 
-        <p>Rather than treat that as just the job, I saw it as a chance to build something. Automating the parts of my own role that didn't need a person freed up time for higher-value work, and gave the rest of the department — current interns and future ones — a tool they could use too.</p>
+        <p>Rather than treat that as just the job, I built something. Automating the parts of my role that didn't need a person freed up time for higher-value work, and gave the rest of the department, current interns and future ones, a tool they could use too.</p>
     </div>
 </section>
 
@@ -128,34 +135,24 @@
             <h2>Technical Details</h2>
         </header>
 
-        <p>The toolkit is four separate Python scripts, each handling one stage of a pipe's lifecycle in TestTrack: searching and downloading SL3 inspection reports, uploading UT thickness readings, creating new assets, and editing existing ones. They share a common foundation — the same login flow, the same asset-search logic, the same fallback behavior when an asset isn't found in the default accounting unit — refactored across files rather than rewritten each time.</p>
+        <p>All four scripts share a common foundation: the same login flow, the same asset-search logic, and the same fallback when an asset isn't found under the default accounting unit. That logic is refactored across files rather than rewritten each time.</p>
 
         <h3>Search and Retrieval</h3>
-        <p>The SL3 tool reads a list of serial numbers from Excel and, for each one, searches TestTrack, checks whether an SL3 (major inspection) report exists, and flags cases where an inspection is still in progress rather than complete. Since a pipe can go up to five years without reinspection after a Major inspection, knowing the most recent SL3 date at a glance is what actually matters for planning — so the tool extracts that date, generates a renamed PDF copy of the report, and writes the date back into Excel automatically.</p>
+        <p>The SL3 tool reads a list of serial numbers from Excel and checks each one for a completed SL3 (major inspection) report, flagging cases where an inspection is still in progress. A pipe can go up to five years without reinspection after a Major inspection, so knowing the most recent SL3 date is what actually matters for planning. The tool extracts that date, generates a renamed PDF copy of the report, and writes the date back into Excel.</p>
 
-        <p>If an asset isn't found under the default accounting unit, the tool doesn't just report a failure — it checks whether the asset is decommissioned first, then retries the search across all accounting units before giving up. That ordering matters: a decommissioned asset and a missing one need different follow-up, and getting them confused would send someone chasing the wrong problem.</p>
+        <p>If an asset isn't found under the default accounting unit, the tool checks whether it's decommissioned first, then retries across all accounting units before giving up. A decommissioned asset and a missing one need different follow-up, so getting that order right matters.</p>
 
-        <div class="tech-image-row">
-            <img src="images/PipeAutomationSLB/ProgramImpact.png" alt="Table comparing manual vs automated time per module" />
-        </div>
-
-        <p>Manual retrieval of SL3 certificates averaged about 2 minutes per asset, measured by timing a new intern doing it by hand. The automated version runs at roughly 10–15 seconds per asset, depending on network conditions — about a 10x speedup, and around 15 hours saved on a 500-asset job alone.</p>
-
-        <h3>Validation and Data Integrity</h3>
-        <p>The UT thickness upload tool reads inspection PDFs with pdfplumber, extracts the thickness readings at each measurement point, and determines whether the result is Accepted or Rejected — but only after validating that the serial number embedded in the PDF actually matches the serial number in Excel. Reports that don't match a serial number in the input list get moved into a separate "Non Relevant PDFs" folder automatically, so they're never silently misapplied to the wrong asset.</p>
-
-        <p>The parsing logic currently supports reports with up to four measurement points (A–D); reports with additional columns need an update to the extraction logic — a known limitation I documented rather than tried to silently work around.</p>
+        <h3>Validation</h3>
+        <p>The UT upload tool reads inspection PDFs with pdfplumber and extracts the thickness readings at each point, but only after confirming the serial number inside the PDF matches the serial number in Excel. Reports that don't match get moved to a separate folder automatically. The parser currently supports up to four measurement points (A to D); more than that needs an update to the extraction logic, a known limitation I documented rather than tried to work around silently.</p>
 
         <h3>Risk-Tiered Automation</h3>
-        <p>Not every tool in the suite runs the same way, and that was a deliberate choice rather than an oversight. Searching, checking status, and downloading reports is low-risk and fully reversible — if something goes wrong, you just rerun it — so that tool runs unattended from login to completion.</p>
-
-        <p>Creating a new asset in TestTrack is a different kind of risk: very few people have permission to delete a wrongly created asset once it exists. So the asset creation tool pre-fills every field — serial number, asset code, born-on/commissioned/in-service dates, and the matching COC upload — then pauses for up to an hour, waiting for a human to actually check the fields before submitting. I only switched off that manual review step once I'd validated the asset-code-generation logic against enough real cases to trust it unattended.</p>
+        <p>Search and download is low risk and fully reversible, so it runs unattended. Creating a new asset is not: very few people can delete one once it exists. So that tool pre-fills every field, then pauses for up to an hour for a human check before submitting. I switched off that review step only after validating the asset-code logic against enough real cases to trust it.</p>
 
         <h3>Resilience</h3>
-        <p>A run against hundreds of assets can take hours, so I built in recovery for the ordinary failure modes that come with a long unattended process: the workbook saves progress every 9 rows, so a crash or lost connection doesn't mean starting over from row one. Stale element references in Selenium — a common failure when TestTrack's page updates mid-action — are caught and retried rather than allowed to crash the whole run. Every asset that fails for any reason gets logged with its own error and status flag in Excel, rather than halting the batch.</p>
+        <p>A run against hundreds of assets can take hours. The workbook saves every 9 rows, so a crash doesn't mean starting over. Stale Selenium element references are caught and retried instead of crashing the run. Every asset that fails for any reason gets logged with its own status in Excel, and the batch keeps going.</p>
 
         <h3>Built for Scale, Not Yet Fully Exercised</h3>
-        <p>The search-and-process pipeline also includes a parallel-processing path: splitting the input workbook across multiple worker sessions, running several TestTrack logins concurrently, then merging the results back into one file. It currently runs in single-session mode — I built and tested the architecture, but haven't yet had a job large enough, or enough confidence in how TestTrack handles concurrent sessions at scale, to rely on it in production. The scaffolding is there for when it's needed.</p>
+        <p>The search tool includes a parallel path that splits the input workbook across multiple worker sessions and merges the results back into one file. It runs single-session for now. The architecture is built and tested, but I haven't had a job large enough to justify running it concurrently in production.</p>
     </div>
 </section>
 
@@ -167,15 +164,14 @@
         </header>
         <p>Given more time, I would have liked to:</p>
         <ul>
-            <li>Complete the automatic UT thickness reading upload — the extraction and validation logic is built, but the final upload step is still partially implemented</li>
+            <li>Complete the automatic UT thickness reading upload; the extraction and validation logic is built, but the final upload step is still partial</li>
             <li>Extend PDF parsing to support inspection reports with more than four measurement points</li>
             <li>Replace fixed delays with fully explicit waits throughout, to make the automation more robust to TestTrack's own loading behavior</li>
-            <li>Add resume-from-last-successful-asset recovery after an unexpected interruption, rather than relying only on periodic saves</li>
-            <li>Validate and enable the multi-session parallel processing path on a real large-scale job</li>
+            <li>Add resume-from-last-successful-asset recovery after an unexpected interruption</li>
+            <li>Validate the multi-session parallel path on a real large-scale job</li>
         </ul>
     </div>
 </section>
-
 				
 				<!-- Contact -->
 					<section id="contact">
